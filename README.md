@@ -1,9 +1,10 @@
-# Quick Start
+# swift-subprocess Quick Start
 
 ### Old-style scripts (no build):
 - `./old_process_api/ls.swift`
 - `./old_process_api/zipdir.swift <folder>`
 - `./old_process_api/git-diff.swift` (e.g., `--cached`)
+- `./old_process_api/thumbs-video.swift [thumbnails_dir] [output.mp4]` (defaults: `thumbnails`, `thumbnails.mp4`)
 
 ### Subprocess demos (SwiftPM):
 - `swift run ls` (flags: `swift run ls -- -la`)
@@ -12,7 +13,7 @@
 - `swift run thumbs-video -- [thumbnails_dir] [output.mp4]` (defaults: `thumbnails`, `thumbnails.mp4`, duration 10s) 
 
 ### Prerequisites:
-`thumbs-video` requires installing FFmpeg via `brew install ffmpeg`
+- FFmpeg is required for both `thumbs-video` variants: `brew install ffmpeg`.
 
 ### Quieter runs:
 - Build once: `swift build -c release`
@@ -28,3 +29,4 @@
 
 - Requires macOS 13 for Subprocess.
 - `swift-subprocess` is pinned to release 0.1.0 in `Package.swift`
+ - Old-style scripts use Foundation's `Process` API and run directly with shebang.
