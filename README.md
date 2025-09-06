@@ -10,7 +10,10 @@
 - `swift run ls` (flags: `swift run ls -- -la`)
 - `swift run zipdir -- <folder>`
 - `swift run git-diff` (extra: `--cached`)
-- `swift run thumbs-video -- [thumbnails_dir] [output.mp4]` (defaults: `thumbnails`, `thumbnails.mp4`, duration 10s) 
+- `swift run thumbs-video -- [thumbnails_dir] [output.mp4]` (defaults: `thumbnails`, `thumbnails.mp4`).
+  - Frame rate: 3 fps.
+  - Aspect: images keep their aspect ratio and are scaled to fill a 1200x600 frame (cropped as needed; no stretching).
+  - If a `thumbnails.txt` file exists, each non-empty, non-comment line is treated as an image URL. The script downloads each URL, converts it to PNG, and stores it as `thumb_0001.png`, `thumb_0002.png`, … in `[thumbnails_dir]`, then builds the video from that numbered PNG sequence.
 
 ### Prerequisites:
 - FFmpeg is required for both `thumbs-video` variants: `brew install ffmpeg`.
